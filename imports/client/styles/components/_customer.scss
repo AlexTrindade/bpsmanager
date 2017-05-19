@@ -1,0 +1,40 @@
+.customer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $gray;
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  form {
+    margin: 0;
+    input {
+      margin: 0;
+    }
+  }
+}
+
+.customer-item {
+  border: 1px solid red;
+  display: flex;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: $light-gray;
+  border: 1px solid $gray;
+  .name {
+    flex: 1;
+    // border: 1px solid green;
+  }
+  .website {
+    flex: 1;
+    // border: 1px solid green;
+  }
+  .address {
+    flex: 1;
+    // border: 1px solid green;
+  }
+  .phone {
+    flex: 1;
+    // border: 1px solid green;
+  }
+}
