@@ -12,7 +12,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'customers.insert'(name, website, address, phone) {
+  'customer.insert'(name, website, address, phone) {
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }

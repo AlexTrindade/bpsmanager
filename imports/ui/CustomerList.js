@@ -19,6 +19,7 @@ export default class CustomerList extends React.Component {
   componentDidMount() {
     this.customersTracker = Tracker.autorun(() => {
       Meteor.subscribe('customers');
+
       const filter = Session.get('filterCustomer');
       if (filter) {
         const customers = Customers.find({

@@ -23,5 +23,4 @@ Tracker.autorun(() => {
 Meteor.startup(() => {
   ReactDOM.render(routes, document.getElementById('app'));
   Session.set('filterCustomer', undefined);
-  // Session.set('selectedCustomerId', undefined);
 });

@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { Session } from 'meteor/session';
 
 import Signup from '../ui/Signup';
@@ -9,6 +9,7 @@ import CustomerItemPage from '../ui/CustomerItemPage';
 import CustomerListPage from '../ui/CustomerListPage';
 import NotFound from '../ui/NotFound';
 import Login from '../ui/Login';
+import IndexPage from '../ui/IndexPage';
 
 const onEnterCustomerItemPage = (nextState) => {
   Session.set('selectedCustomerId', nextState.params.id);
@@ -42,10 +43,11 @@ export const routes = (
   <Router history={browserHistory}>
     <Route onEnter={globalOnEnter} onChange={globalOnChange} >
       <Route path="/" component={Login} privacy="unauth" />
-      <Route path="/signup" component={Signup} privacy="unauth" />
       <Route path="/dashboard" component={Dashboard} privacy="auth">
+        <IndexRoute component={IndexPage} privacy="auth" />
         <Route path="/dashboard/customers" component={CustomerListPage} privacy="auth"/>
         <Route path="/dashboard/customers/:id" component={CustomerItemPage} onEnter={onEnterCustomerItemPage} onLeave={onLeaveCustomerItemPage} privacy="auth"/>
+        <Route path="/dashboard/signup" component={Signup} privacy="auth" />
       </Route>
       <Route path="*" component={NotFound} />
     </Route>

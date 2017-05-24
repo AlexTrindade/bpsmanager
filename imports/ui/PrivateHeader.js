@@ -7,7 +7,7 @@ const PrivateHeader = (props) => {
   return (
     <div className="header">
       <div className="header__content">
-        <h1 className="header__title">{props.title}</h1>
+        <Link to={'/'} className="header__title">{props.title}</Link>
         <div className="header__menu">
           <Link to={'/dashboard/customers'} className='button button--link-text'>Customers</Link>
           <a className="button button--link-text" onClick={() => Accounts.logout()}>Logout</a>

@@ -3,8 +3,17 @@ import { Session } from 'meteor/session';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import {Customers} from '../api/customers';
+import TransactionAdd from './TransactionAdd';
+import TransactionList from './TransactionList';
 
 export class CustomerItemPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      website: ''
+    }
+  }
   render() {
     if (this.props.customer) {
       return (
@@ -12,9 +21,21 @@ export class CustomerItemPage extends React.Component {
           <div className="customer-header">
             <h1>Customer Item Page</h1>
           </div>
-          {this.props.customer.name}
-          <br />
-          {this.props.customer.website}
+          <div>
+            {this.props.customer.name}
+            <br />
+            {this.props.customer.website}
+            <br />
+            {this.props.customer.address}
+            <br />
+            {this.props.customer.phone}
+          </div>
+          <div>
+            <TransactionAdd />
+          </div>
+          <div>
+            <TransactionList />
+          </div>
         </div>
       );
     } else {
