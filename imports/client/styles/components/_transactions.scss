@@ -1,0 +1,53 @@
+.transactions {
+  // border: 1px solid #1B689C;
+  display: flex;
+  flex-flow: column;
+  margin: 1rem 0;
+}
+
+.transaction {
+  display: flex;
+  padding: .5rem 1rem;
+  font-size: 1.9rem;
+  background: $gray;
+  margin-bottom: .8rem;
+  .data {
+    flex: 3;
+  }
+  .value {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1rem;
+    span {
+      font-size: 2rem;
+    }
+  }
+  .buttons {
+    flex: 1;
+    align-items: center;
+    display: flex;
+    // border: 1px solid red;
+    button {
+      flex: 1;
+      font-size: 1.5rem;
+      padding: 2rem;
+    }
+  }
+}
+
+.transaction--sum {
+  padding: 1rem;
+  color: white;
+  background: $brand-primary;
+  font-size: 2rem;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}

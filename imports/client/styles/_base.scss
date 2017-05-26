@@ -14,6 +14,13 @@ body {
   width: 100%;
 }
 
+.index-page {
+  text-align: center;
+  img {
+    width: 25rem;
+  }
+}
+
 h1 {
   font-weight: 300;
   margin-bottom: $space;

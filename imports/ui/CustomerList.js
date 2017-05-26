@@ -23,7 +23,7 @@ export default class CustomerList extends React.Component {
       const filter = Session.get('filterCustomer');
       if (filter) {
         const customers = Customers.find({
-          'name': {$regex: filter}
+          'name': {$regex: filter, $options: 'i'}
         }, {
         sort: {
           updateAt: -1

@@ -3,7 +3,10 @@ import React from 'react';
 export default class IndexPage extends React.Component {
   render() {
     return (
-      <div>IndexPage Component</div>
+      <div className="index-page">
+        <img src="logo.svg" alt=""/>
+      </div>
+
     )
   }
 }

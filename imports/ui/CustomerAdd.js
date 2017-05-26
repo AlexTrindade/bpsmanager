@@ -16,9 +16,9 @@ export default class CustomerAdd extends React.Component {
     e.preventDefault();
     const name = this.refs.name.value;
     const website = this.refs.website.value;
-    const address = this.refs.address.value;
+    const email = this.refs.email.value;
     const phone = this.refs.phone.value;
-    Meteor.call('customer.insert', name, website, address, phone, (err, res) => {
+    Meteor.call('customer.insert', name, website, email, phone, (err, res) => {
       if (!err) {
         this.handleModalClose();
       } else {
@@ -47,7 +47,7 @@ export default class CustomerAdd extends React.Component {
           <form onSubmit={this.handleSubmit.bind(this)} className="boxed-view__form">
             <input type="text" placeholder="Customer name" ref="name" />
             <input type="text" placeholder="Website" ref="website" />
-            <input type="text" placeholder="Address" ref="address" />
+            <input type="text" placeholder="Email" ref="email" />
             <input type="text" placeholder="Phone" ref="phone" />
             <button className="button">Add Customer</button>
             <button type="button" className="button button--secondary" onClick={this.handleModalClose.bind(this)}>Cancel</button>

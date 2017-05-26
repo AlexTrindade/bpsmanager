@@ -14,26 +14,37 @@
   }
 }
 
+.customer-commands {
+  display: flex;
+  justify-content: space-between;
+}
+
 .customer-item {
   border: 1px solid red;
   display: flex;
+  justify-content: space-between;
   padding: 1rem;
   margin-bottom: 1rem;
   background: $light-gray;
   border: 1px solid $gray;
-  .name {
-    flex: 1;
+  .name-web {
+    flex: 2;
+    span {
+      font-weight: bold;
+      display: block;
+      font-size: 1.8rem;
+    }
     // border: 1px solid green;
   }
-  .website {
-    flex: 1;
-    // border: 1px solid green;
-  }
-  .address {
-    flex: 1;
-    // border: 1px solid green;
-  }
-  .phone {
+  .email-phone-value {
+    div {
+      padding: 0 0 .5rem 0;
+    }
+    .value {
+      font-weight: 600;
+      font-size: 2rem;
+      color: #1B689C;
+    }
     flex: 1;
     // border: 1px solid green;
   }

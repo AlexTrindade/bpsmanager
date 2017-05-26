@@ -1,25 +1,38 @@
 import React from 'react';
 import {Session} from 'meteor/session';
+import {createContainer} from 'meteor/react-meteor-data';
 
-export default class CustomerItem extends React.Component {
+import {Transactions} from '../api/transactions';
+
+export class CustomerItem extends React.Component {
   render() {
+    let sum = 0;
+    this.props.transactions.map((transaction) => {
+      if (transaction.customerId == this.props._id) {
+        sum += transaction.value;
+      }
+    });
     return (
       <div className="customer-item" onClick={() => {
         Session.set('selectedCustomerId', this.props._id);
       }}>
-        <div className="name">
-          {this.props.name}
+        <div className="name-web">
+          <span>{this.props.name}</span>
+          <div>{this.props.website}</div>
         </div>
-        <div className="website">
-          {this.props.website}
-        </div>
-        <div className="address">
-          {this.props.address}
-        </div>
-        <div className="phone">
-          {this.props.phone}
+        <div className="email-phone-value">
+          <div>{this.props.email}</div>
+          <div>{this.props.phone}</div>
+          <div>Saldo a receber: <span className="value">{sum.toFixed(2)}</span></div>
         </div>
       </div>
     )
   }
 }
+
+export default createContainer(() => {
+  Meteor.subscribe('transactionsSum');
+  return {
+   transactions: Transactions.find({}).fetch()
+  }
+}, CustomerItem);
