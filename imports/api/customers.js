@@ -26,7 +26,7 @@ Meteor.methods({
         type: String,
         optional: true,
         label: 'Website',
-        regEx: SimpleSchema.RegEx.Url
+        regEx: SimpleSchema.RegEx.Domain
       },
       email: {
         type: String,

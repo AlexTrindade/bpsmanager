@@ -17,7 +17,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'transaction.insert'(customerId, accountId, description, value, category, note ) {
+  'transaction.insert'(customerId, accountId, description, value, date, category, note ) {
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
@@ -42,6 +42,10 @@ Meteor.methods({
         type: Number,
         label: 'Value'
       },
+      date: {
+        type: Number,
+        label: 'Date'
+      },
       category: {
         type: String,
         label: 'Category',
@@ -52,13 +56,14 @@ Meteor.methods({
         label: 'Note',
         optional: true
       }
-    }).validate({ customerId, accountId, description, value, category, note });
+    }).validate({ customerId, accountId, description, value, date, category, note });
 
     return Transactions.insert({
       customerId,
       accountId,
       description,
       value,
+      date,
       category,
       note,
       userId: this.userId,
@@ -84,6 +89,10 @@ Meteor.methods({
         type: Number,
         label: 'Value'
       },
+      date: {
+        type: Number,
+        label: 'Date'
+      },
       category: {
         type: String,
         label: 'Category',
@@ -106,26 +115,5 @@ Meteor.methods({
       }
     });
   }
-  // 'transaction.sum'(customerId) {
-  //   if (!this.userId) {
-  //     throw new Meteor.Error('not-authorized');
-  //   }
-  //
-  //   new SimpleSchema({
-  //     customerId: {
-  //       type: String,
-  //       label: 'Name',
-  //       min: 5
-  //     }
-  //   }).validate({customerId});
-  //
-  //   return Transactions.aggregate([
-  //     {$match: {customerId}},
-  //     {$group: {
-  //       _id: '$customerId',
-  //       totalAmount: { $sum: "$value" },
-  //     }}
-  //   ]);
-  // }
 
 });
