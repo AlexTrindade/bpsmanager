@@ -47,7 +47,7 @@ export const routes = (
         <IndexRoute component={IndexPage} privacy="auth" />
         <Route path="/dashboard/customers" component={CustomerListPage} privacy="auth"/>
         <Route path="/dashboard/customers/:id" component={CustomerItemPage} onEnter={onEnterCustomerItemPage} onLeave={onLeaveCustomerItemPage} privacy="auth"/>
-        <Route path="/dashboard/signup" component={Signup} privacy="auth" />
+        <Route path="/dashboard/signup" component={Signup} privacy="unauth" />
       </Route>
       <Route path="*" component={NotFound} />
     </Route>
