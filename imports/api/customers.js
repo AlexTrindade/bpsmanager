@@ -7,7 +7,8 @@ export const Customers = new Mongo.Collection('customers');
 
 if (Meteor.isServer) {
   Meteor.publish('customers', function() {
-    return Customers.find({userId: this.userId});
+    // return Customers.find({userId: this.userId});
+    return Customers.find({});
   });
 }
 
